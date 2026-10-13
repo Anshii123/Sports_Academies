@@ -432,6 +432,7 @@ export default function HeroSection({ onOpenBooking, onOpenFinder }: HeroSection
               {/* Massive Dynamic Headline with Animated Rotating Target Word */}
               <div className="space-y-2">
                 <h1 className="editorial-title text-4xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black text-[#171A18] tracking-tight leading-[0.94]">
+                  <span className="sr-only">APEX Sports Academy — Olympic Sports Training &amp; Youth Athletic Development. </span>
                   BUILT FOR <br />
                   <span className="inline-block relative overflow-hidden h-[1.15em] align-bottom">
                     <span
@@ -648,13 +649,20 @@ export default function HeroSection({ onOpenBooking, onOpenFinder }: HeroSection
             <div className="lg:col-span-6 xl:col-span-6 space-y-4 w-full">
 
               {/* SPORT SELECTOR CHIPS ROW WITH AUTO-PROGRESS BARS */}
-              <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 no-scrollbar select-none w-full">
+              <div
+                role="tablist"
+                aria-label="High performance sport disciplines selector"
+                className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 no-scrollbar select-none w-full"
+              >
                 {SHOWCASE_SPORTS.map((sport, idx) => {
                   const isActive = idx === activeSportIdx;
                   return (
                     <button
                       key={sport.id}
                       type="button"
+                      role="tab"
+                      aria-selected={isActive}
+                      aria-label={`Select ${sport.name} showcase`}
                       onClick={() => {
                         setActiveSportIdx(idx);
                         setProgress(0);

@@ -65,7 +65,7 @@ export default function AthleteStoriesPage() {
                 >
                   <Image
                     src={story.image}
-                    alt={story.name}
+                    alt={`${story.name} — ${story.sport} athlete success story at Apex Sports Academy`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"

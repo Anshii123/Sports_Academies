@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { COACHES_DATA } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Elite Coaching Staff & International Directors Directory",
@@ -43,11 +44,40 @@ export default function CoachesLayout({ children }: { children: React.ReactNode 
     ]
   };
 
+  const coachesItemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "APEX Sports Academy Elite Coaching Staff",
+    "description": "International directors and Olympic performance mentors at APEX Sports Academy.",
+    "numberOfItems": COACHES_DATA.length,
+    "itemListElement": COACHES_DATA.map((coach, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "item": {
+        "@type": "Person",
+        "name": coach.name,
+        "jobTitle": coach.role,
+        "description": coach.bio,
+        "image": `https://apex-sports.academy${coach.image}`,
+        "worksFor": {
+          "@type": "SportsOrganization",
+          "name": "APEX Sports Academy",
+          "sameAs": "https://apex-sports.academy"
+        },
+        "knowsAbout": [coach.sport, coach.specialization, ...coach.certifications]
+      }
+    }))
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(coachesItemListJsonLd) }}
       />
       {children}
     </>

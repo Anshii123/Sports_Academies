@@ -24,6 +24,19 @@ export const metadata: Metadata = {
 };
 
 export default function AboutLayout({ children }: { children: React.ReactNode }) {
+  const aboutPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About APEX Sports Academy",
+    "description": "Founded in 2012, Apex Sports Academy is an 18-acre private high-performance campus dedicated to elite youth and pre-professional athletic development.",
+    "mainEntity": {
+      "@type": "SportsOrganization",
+      "name": "APEX Sports Academy",
+      "foundingDate": "2012",
+      "url": "https://apex-sports.academy"
+    }
+  };
+
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -45,6 +58,10 @@ export default function AboutLayout({ children }: { children: React.ReactNode })
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

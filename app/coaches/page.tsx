@@ -108,7 +108,7 @@ export default function CoachesPage() {
                   <div className="relative aspect-[4/4] overflow-hidden bg-black/5">
                     <Image
                       src={coach.image}
-                      alt={coach.name}
+                      alt={`${coach.name} — ${coach.role} at APEX Sports Academy`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -197,7 +197,7 @@ export default function CoachesPage() {
               <div className="relative w-32 h-44 sm:w-36 sm:h-48 rounded-xl overflow-hidden shrink-0 border border-[#E2E5DC] mx-auto sm:mx-0">
                 <Image
                   src={selectedCoach.image}
-                  alt={selectedCoach.name}
+                  alt={`${selectedCoach.name} — ${selectedCoach.role}`}
                   fill
                   sizes="144px"
                   className="object-cover"

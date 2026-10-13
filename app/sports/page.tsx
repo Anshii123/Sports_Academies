@@ -121,7 +121,7 @@ export default function SportsProgramsPage() {
                 <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-full overflow-hidden bg-black/5">
                   <Image
                     src={sport.image}
-                    alt={sport.name}
+                    alt={`${sport.name} — ${sport.tagline} at APEX Sports Academy`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 42vw"
                     className="object-cover hover:scale-105 transition-transform duration-700"

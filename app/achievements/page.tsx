@@ -91,7 +91,7 @@ export default function AchievementsPage() {
                   <div className="relative aspect-[4/4] overflow-hidden bg-black/5">
                     <Image
                       src={athlete.image}
-                      alt={athlete.name}
+                      alt={`${athlete.name} — ${athlete.sport} Wall of Fame Athlete at APEX`}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover"

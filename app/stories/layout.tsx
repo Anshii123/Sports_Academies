@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ATHLETE_STORIES_DATA } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Athlete Case Studies & High-Performance Success Stories",
@@ -43,11 +44,47 @@ export default function StoriesLayout({ children }: { children: React.ReactNode 
     ]
   };
 
+  const storiesItemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "APEX Athlete Case Studies & Documentary Breakdowns",
+    "description": "True stories of young athletes rising from grassroots to national podiums.",
+    "numberOfItems": ATHLETE_STORIES_DATA.length,
+    "itemListElement": ATHLETE_STORIES_DATA.map((story, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "item": {
+        "@type": "Article",
+        "headline": `${story.name}: ${story.headline}`,
+        "description": story.subheading,
+        "image": `https://apex-sports.academy${story.image}`,
+        "author": {
+          "@type": "Organization",
+          "name": "APEX Sports Academy"
+        },
+        "publisher": {
+          "@type": "SportsOrganization",
+          "name": "APEX Sports Academy",
+          "url": "https://apex-sports.academy"
+        },
+        "about": {
+          "@type": "Person",
+          "name": story.name,
+          "description": `${story.sport} athlete, ${story.ageGroup}. ${story.achievement}`
+        }
+      }
+    }))
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(storiesItemListJsonLd) }}
       />
       {children}
     </>

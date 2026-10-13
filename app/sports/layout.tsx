@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SPORTS_DATA } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Sports Disciplines & Athletic Programs | Football, Cricket, Tennis",
@@ -43,11 +44,46 @@ export default function SportsLayout({ children }: { children: React.ReactNode }
     ]
   };
 
+  const sportsItemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "APEX Sports Academy Disciplines & Training Programs",
+    "description": "High-performance youth and elite athletic development across Olympic disciplines.",
+    "numberOfItems": SPORTS_DATA.length,
+    "itemListElement": SPORTS_DATA.map((sport, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "item": {
+        "@type": "Course",
+        "name": sport.name,
+        "description": sport.description,
+        "url": `https://apex-sports.academy/sports#${sport.slug}`,
+        "provider": {
+          "@type": "SportsOrganization",
+          "name": "APEX Sports Academy",
+          "sameAs": "https://apex-sports.academy"
+        },
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": "OnSite",
+          "instructor": {
+            "@type": "Person",
+            "name": sport.leadCoach
+          }
+        }
+      }
+    }))
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(sportsItemListJsonLd) }}
       />
       {children}
     </>

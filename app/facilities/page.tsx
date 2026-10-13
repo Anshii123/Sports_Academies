@@ -96,7 +96,7 @@ export default function FacilitiesPage() {
             <div className="lg:col-span-7 relative aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-black/5">
               <Image
                 src={selectedFacility.image}
-                alt={selectedFacility.name}
+                alt={`${selectedFacility.name} — ${selectedFacility.tagline} at APEX Sports Campus`}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 58vw"
@@ -201,7 +201,7 @@ export default function FacilitiesPage() {
                   <div className="relative aspect-[16/10] overflow-hidden bg-black/5">
                     <Image
                       src={facility.image}
-                      alt={facility.name}
+                      alt={`${facility.name} — ${facility.tagline}`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"

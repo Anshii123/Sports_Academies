@@ -24,6 +24,27 @@ export const metadata: Metadata = {
 };
 
 export default function ContactLayout({ children }: { children: React.ReactNode }) {
+  const contactPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "APEX Sports Academy Admissions & Tour Desk",
+    "description": "Connect with athletic admissions, book campus evaluations, and visit our 18-acre sports complex.",
+    "mainEntity": {
+      "@type": "SportsOrganization",
+      "name": "APEX Sports Academy",
+      "telephone": "+1-800-555-APEX",
+      "email": "admissions@apex-sports.academy",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "100 Olympic Way, Sports City Complex",
+        "addressLocality": "Sports City",
+        "addressRegion": "CA",
+        "postalCode": "90210",
+        "addressCountry": "US"
+      }
+    }
+  };
+
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -45,6 +66,10 @@ export default function ContactLayout({ children }: { children: React.ReactNode 
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

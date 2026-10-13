@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MEMBERSHIP_PLANS } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Athlete Membership Plans & Academy Admission Tiers",
@@ -43,11 +44,41 @@ export default function MembershipLayout({ children }: { children: React.ReactNo
     ]
   };
 
+  const membershipItemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "APEX Sports Academy Membership Plans",
+    "description": "Athlete development and training memberships with expert coaching.",
+    "numberOfItems": MEMBERSHIP_PLANS.length,
+    "itemListElement": MEMBERSHIP_PLANS.map((plan, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "item": {
+        "@type": "Product",
+        "name": `${plan.name} Membership`,
+        "description": plan.subtitle,
+        "category": "Sports Coaching Membership",
+        "offers": {
+          "@type": "Offer",
+          "price": plan.monthlyPrice,
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://apex-sports.academy/membership",
+          "priceValidUntil": "2027-12-31"
+        }
+      }
+    }))
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(membershipItemListJsonLd) }}
       />
       {children}
     </>

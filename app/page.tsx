@@ -174,7 +174,7 @@ export default function HomePage() {
                 <div className="relative aspect-[16/11] overflow-hidden bg-black/10">
                   <Image
                     src={sport.image}
-                    alt={sport.name}
+                    alt={`${sport.name} athletic coaching program at Apex Sports Academy`}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover group-hover:scale-108 transition-transform duration-700"
@@ -586,7 +586,7 @@ export default function HomePage() {
                   <div className="relative aspect-[4/4] overflow-hidden bg-black/5">
                     <Image
                       src={coach.image}
-                      alt={coach.name}
+                      alt={`${coach.name} — ${coach.role} at APEX Sports Academy`}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -668,7 +668,7 @@ export default function HomePage() {
             <div className="lg:col-span-8 relative aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-black/10">
               <Image
                 src={FACILITIES_DATA[activeFacilityIndex].image}
-                alt={FACILITIES_DATA[activeFacilityIndex].name}
+                alt={`${FACILITIES_DATA[activeFacilityIndex].name} Olympic standard facility at Apex Sports Academy`}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 66vw"
@@ -720,7 +720,7 @@ export default function HomePage() {
                   <div className="relative w-16 h-14 rounded-lg overflow-hidden shrink-0 border border-[#E2E5DC]">
                     <Image
                       src={f.image}
-                      alt={f.name}
+                      alt={`${f.name} facility preview`}
                       fill
                       sizes="64px"
                       className="object-cover"
@@ -1027,7 +1027,7 @@ export default function HomePage() {
             <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden shrink-0 border-2 border-[#E2E5DC]">
               <Image
                 src={TESTIMONIALS_DATA[activeTestimonialIdx].image}
-                alt={TESTIMONIALS_DATA[activeTestimonialIdx].name}
+                alt={`${TESTIMONIALS_DATA[activeTestimonialIdx].name} — ${TESTIMONIALS_DATA[activeTestimonialIdx].role}`}
                 fill
                 sizes="(max-width: 640px) 112px, 144px"
                 className="object-cover"
