@@ -1,0 +1,336 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --cream: #F8F7F2;
+    --cream-light: #FFFFFF;
+    --sand: #F1F2ED;
+    --sand-dark: #E4E6DC;
+    --charcoal: #171A18;
+    --charcoal-light: #2A2F2C;
+    --muted: #4E544F;
+    --muted-light: #737A74;
+    --vermillion: #F4512C;
+    --vermillion-hover: #DC3E1B;
+    --vermillion-soft: #FFF1ED;
+    --forest: #174A3B;
+    --forest-dark: #0E3127;
+    --forest-soft: #EBF3F0;
+    --lime-accent: #B8D94E;
+    --lime-soft: #F4F9E4;
+    --border-color: #E2E5DC;
+    --border-subtle: #ECEEE7;
+  }
+
+  body {
+    background-color: var(--cream);
+    color: var(--charcoal);
+    font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #F4512C;
+    color: #FFFFFF;
+  }
+}
+
+/* Custom Sports Editorial Utilities */
+.font-display {
+  font-family: var(--font-heading), sans-serif;
+  letter-spacing: -0.035em;
+}
+
+.font-body {
+  font-family: var(--font-body), sans-serif;
+}
+
+/* Smooth editorial typography treatments */
+.editorial-title {
+  font-family: var(--font-heading), sans-serif;
+  letter-spacing: -0.045em;
+  line-height: 0.90;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.vertical-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 0.18em;
+}
+
+.editorial-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+}
+
+/* Custom interactive button styles */
+.btn-primary,
+.btn-forest,
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  font-weight: 800;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.4rem;
+  border-radius: 6px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  line-height: 1.3;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 769px) {
+  .btn-primary,
+  .btn-forest,
+  .btn-outline {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn-primary,
+  .btn-forest,
+  .btn-outline {
+    white-space: normal;
+    padding: 0.75rem 1rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.025em;
+  }
+}
+
+.btn-primary {
+  background-color: #F4512C;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(244, 81, 44, 0.22);
+}
+
+.btn-primary:hover {
+  background-color: #DC3E1B;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(244, 81, 44, 0.32);
+}
+
+.btn-forest {
+  background-color: #174A3B;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(23, 74, 59, 0.2);
+}
+
+.btn-forest:hover {
+  background-color: #0E3127;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(23, 74, 59, 0.3);
+}
+
+.btn-outline {
+  background-color: #FFFFFF;
+  color: #171A18;
+  border: 1.5px solid #E2E5DC;
+}
+
+.btn-outline:hover {
+  border-color: #174A3B;
+  color: #174A3B;
+  background-color: #F8F7F2;
+  transform: translateY(-2px);
+}
+
+/* Subtle sports card styling */
+.sports-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E6E8DF;
+  border-radius: 14px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sports-card:hover {
+  border-color: #D2D5C8;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(23, 26, 24, 0.07);
+}
+
+/* Horizontal scroll styling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-infinite {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-infinite {
+  display: flex;
+  width: max-content;
+  animation: marquee-infinite 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-infinite:hover {
+  animation-play-state: paused;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F2ED;
+}
+::-webkit-scrollbar-thumb {
+  background: #D1D5C8;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A6AAA0;
+}
+
+/* Accessible focus ring standards */
+:focus-visible {
+  outline: 2px solid var(--vermillion);
+  outline-offset: 2px;
+}
+
+/* Reduced Motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-marquee,
+  .animate-marquee-infinite {
+    animation: none !important;
+  }
+}
+
+/* Modern safe area utilities for mobile devices */
+.safe-area-bottom {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+.safe-area-top {
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+
+/* ========================================================================= */
+/* ANIMATED HERO SECTION & INTERACTIVE HUD STYLING */
+/* ========================================================================= */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(1.5deg); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(12px) rotate(-1.5deg); }
+}
+
+@keyframes laser-sweep {
+  0% { transform: translateY(-100%); opacity: 0; }
+  30% { opacity: 0.8; }
+  70% { opacity: 0.8; }
+  100% { transform: translateY(1000%); opacity: 0; }
+}
+
+@keyframes radar-pulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+
+@keyframes sound-bar {
+  0%, 100% { height: 4px; }
+  50% { height: 18px; }
+}
+
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 9s ease-in-out infinite;
+}
+
+.animate-laser-sweep {
+  animation: laser-sweep 4s ease-in-out infinite;
+}
+
+.animate-radar-pulse {
+  animation: radar-pulse 2.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+/* Equalizer audio bars */
+.sound-bar-1 { animation: sound-bar 1.2s ease-in-out infinite 0.1s; }
+.sound-bar-2 { animation: sound-bar 0.9s ease-in-out infinite 0.3s; }
+.sound-bar-3 { animation: sound-bar 1.4s ease-in-out infinite 0.2s; }
+.sound-bar-4 { animation: sound-bar 1.0s ease-in-out infinite 0.4s; }
+
+/* Grid texture for sports arena lab */
+.bg-arena-grid {
+  background-image: 
+    linear-gradient(to right, rgba(23, 74, 59, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 74, 59, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-radial-soft {
+  background: radial-gradient(circle at 50% 20%, rgba(244, 81, 44, 0.08) 0%, rgba(23, 74, 59, 0.06) 45%, transparent 75%);
+}
+
+/* Glassmorphism overlays */
+.hud-glass-badge {
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+.hud-glass-light {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(226, 229, 220, 0.8);
+  box-shadow: 0 16px 36px rgba(23, 26, 24, 0.08);
+}
+
