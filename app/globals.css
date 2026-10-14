@@ -305,13 +305,6 @@
 .sound-bar-3 { animation: sound-bar 1.4s ease-in-out infinite 0.2s; }
 .sound-bar-4 { animation: sound-bar 1.0s ease-in-out infinite 0.4s; }
 
-/* Grid texture for sports arena lab */
-.bg-arena-grid {
-  background-image: 
-    linear-gradient(to right, rgba(23, 74, 59, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(23, 74, 59, 0.05) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
 
 .bg-radial-soft {
   background: radial-gradient(circle at 50% 20%, rgba(244, 81, 44, 0.08) 0%, rgba(23, 74, 59, 0.06) 45%, transparent 75%);

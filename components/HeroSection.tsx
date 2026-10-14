@@ -323,7 +323,7 @@ export default function HeroSection({ onOpenBooking, onOpenFinder }: HeroSection
 
   return (
     <>
-      <section className="relative pt-6 pb-12 lg:pt-10 lg:pb-18 bg-[#F8F7F2] border-b border-[#E2E5DC] overflow-hidden bg-arena-grid">
+      <section className="relative pt-6 pb-12 lg:pt-10 lg:pb-18 bg-[#F8F7F2] border-b border-[#E2E5DC] overflow-hidden">
         {/* Soft Ambient Radial Glow Overlays */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-radial-soft pointer-events-none -z-0" />
         <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-[#F4512C]/6 blur-3xl pointer-events-none" />
